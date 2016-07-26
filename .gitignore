@@ -1,0 +1,9 @@
+*.dll
+*.pdb
+*.suo
+*.cache
+*.FileListAbsolute.txt
+
+packages
+obj
+bin

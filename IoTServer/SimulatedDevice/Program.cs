@@ -12,25 +12,32 @@ namespace SimulatedDevice
     {
         static DeviceClient deviceClient;
         static string iotHubUri = "jar-iot-labs.azure-devices.net";
-        static string deviceKey = "{device key}";
+        static string deviceKey = "PejIBr1a8GOD7jhVshpQf7e8LUmIyHBMB4lHh1l457s=";
 
         static void Main(string[] args)
         {
+            Console.WriteLine("Simulated device\n");
+            deviceClient = DeviceClient.Create(iotHubUri, new DeviceAuthenticationWithRegistrySymmetricKey("myFirstDevice", deviceKey));
+
+            SendDeviceToCloudMessagesAsync();
+            Console.ReadLine();
         }
+
         private static async void SendDeviceToCloudMessagesAsync()
         {
-            double avgWindSpeed = 10; // m/s
+            double avgValue = 10; // m/s
             Random rand = new Random();
 
             while (true)
             {
-                double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
+                double currentReading = avgValue + rand.NextDouble() * 4 - 2;
 
                 var telemetryDataPoint = new
                 {
-                    deviceId = "myFirstDevice",
-                    windSpeed = currentWindSpeed
+                    DeviceId = "myFirstDevice",
+                    Weight = currentReading
                 };
+
                 var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
                 var message = new Message(Encoding.ASCII.GetBytes(messageString));
 

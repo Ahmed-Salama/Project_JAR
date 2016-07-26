@@ -6,17 +6,15 @@ using System.Web.Http;
 
 namespace WebServer.Controllers
 {
-    public class WeightController : ApiController
+    public class WeightController : Controller
     {
-        private ApplicationContext _context;
-
-        public WeightController(ApplicationContext context)
+        public WeightController(ApplicationContext context) : base (context)
         {
-            _context = context;
         }
 
         public int Get()
         {
+            Validate();
             return _context.Weight;
         }
     }

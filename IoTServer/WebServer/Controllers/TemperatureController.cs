@@ -6,17 +6,15 @@ using System.Web.Http;
 
 namespace WebServer.Controllers
 {
-    public class TemperatureController : ApiController
+    public class TemperatureController : Controller
     {
-        private ApplicationContext _context;
-
-        public TemperatureController(ApplicationContext context)
+        public TemperatureController(ApplicationContext context) : base(context)
         {
-            _context = context;
         }
 
         public int Get()
         {
+            Validate();
             return _context.Temperature;
         }
     }
