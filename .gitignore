@@ -1,4 +1,4 @@
-*.map.js
+*.js.map
 *.js
 *.dll
 *.dll.config
