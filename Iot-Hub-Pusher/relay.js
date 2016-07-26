@@ -1,5 +1,9 @@
+var deviceId = process.argv[2];
+var type = process.argv[3];
+var portName = process.argv[4]
+
 var SerialPort = require("serialport");
-var port = new SerialPort("/dev/cu.usbmodem1411", {
+var port = new SerialPort(portName, {
   parser: SerialPort.parsers.readline('\n')
 });
 
@@ -28,17 +32,24 @@ var connectCallback = function (err) {
     });
 
     client.on('disconnect', function () {
-      clearInterval(sendInterval);
       client.removeAllListeners();
       client.open(connectCallback);
     });
 
     port.on('data', function (data) {
         // Create a message and send it to the IoT Hub every second
-        var d = JSON.stringify({ DeviceId: "FSR", Weight: data, EventTime: new Date().getTime() });
-        var message = new Message(d);
-        console.log('Sending message: ' + message.getData());
-        client.sendEvent(message, printResultFor('send'));
+        var d;
+        if (type === "weight") {
+            d = JSON.stringify({ DeviceId: deviceId, Weight: data, EventTime: new Date().getTime() });
+        } 
+        else if (type === "temperature") {
+            d = JSON.stringify({ DeviceId: deviceId, Temperature: data, EventTime: new Date().getTime() });
+        }
+        if (d != null) {
+            var message = new Message(d);
+            console.log('Sending message: ' + message.getData());
+            client.sendEvent(message, printResultFor('send'));
+        }
     });
   }
 };
