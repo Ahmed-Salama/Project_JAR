@@ -118,6 +118,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ApplicationContext.cs" />
+	<Compile Include="Controllers\Controller.cs" />
     <Compile Include="Controllers\ControllerDependencyResolver.cs" />
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\WeightController.cs" />

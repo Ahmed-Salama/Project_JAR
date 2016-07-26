@@ -1,0 +1,12 @@
+*.dll
+*.dll.config
+*.pdb
+*.suo
+*.cache
+*.FileListAbsolute.txt
+
+*.xdt
+
+packages
+obj
+bin

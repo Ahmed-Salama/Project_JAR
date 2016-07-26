@@ -1,8 +1,0 @@
-c:\users\ahsalam\documents\visual studio 2013\Projects\IoTServer\IoTServer\bin\Debug\IoTServer.exe.config
-c:\users\ahsalam\documents\visual studio 2013\Projects\IoTServer\IoTServer\bin\Debug\IoTServer.exe
-c:\users\ahsalam\documents\visual studio 2013\Projects\IoTServer\IoTServer\bin\Debug\IoTServer.pdb
-c:\users\ahsalam\documents\visual studio 2013\Projects\IoTServer\IoTServer\bin\Debug\Microsoft.ServiceBus.dll
-c:\users\ahsalam\documents\visual studio 2013\Projects\IoTServer\IoTServer\bin\Debug\Microsoft.ServiceBus.xml
-c:\users\ahsalam\documents\visual studio 2013\Projects\IoTServer\IoTServer\obj\Debug\IoTServer.csprojResolveAssemblyReference.cache
-c:\users\ahsalam\documents\visual studio 2013\Projects\IoTServer\IoTServer\obj\Debug\IoTServer.exe
-c:\users\ahsalam\documents\visual studio 2013\Projects\IoTServer\IoTServer\obj\Debug\IoTServer.pdb
