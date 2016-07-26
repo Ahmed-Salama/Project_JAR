@@ -2,19 +2,77 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebServer.Models;
 
 namespace WebServer
 {
     public class ApplicationContext
     {
-        public int Temperature { get; set; }
-        public int Weight { get; set; }
+        public int Temperature { 
+            get {
+                if (SimulationStartTime == null)
+                {
+                    return temperature;
+                }
+                else
+                {
+                    return GetLastKeyframe(TemperatureSimulationEvents).Value;
+                }
+            } set {
+                temperature = value;
+            }
+        }
+
+        public int Weight
+        {
+            get
+            {
+                if (SimulationStartTime == null)
+                {
+                    return weight;
+                }
+                else
+                {
+                    return GetLastKeyframe(WeightSimulationEvents).Value;
+                }
+            }
+            set
+            {
+                weight = value;
+            }
+        }
+
+        private int temperature;
+        private int weight;
 
         private Queue<Exception> ExceptionsRaised;
+
+        private DateTime? SimulationStartTime;
+        private List<Keyframe> TemperatureSimulationEvents;
+        private List<Keyframe> WeightSimulationEvents;
 
         public ApplicationContext()
         {
             ExceptionsRaised = new Queue<Exception>();
+
+            // Dummy simulation data
+            WeightSimulationEvents = new List<Keyframe>() { 
+                new Keyframe(TimeSpan.FromSeconds(0), 0),
+                new Keyframe(TimeSpan.FromSeconds(10), 10),
+                new Keyframe(TimeSpan.FromSeconds(20), 50),
+                new Keyframe(TimeSpan.FromSeconds(30), 0),
+            };
+
+            TemperatureSimulationEvents = new List<Keyframe>() { 
+                new Keyframe(TimeSpan.FromSeconds(0), 0),
+                new Keyframe(TimeSpan.FromSeconds(40), 10),
+                new Keyframe(TimeSpan.FromSeconds(45), 20),
+                new Keyframe(TimeSpan.FromSeconds(50), 50),
+                new Keyframe(TimeSpan.FromSeconds(70), 70),
+                new Keyframe(TimeSpan.FromSeconds(90), 120),
+                new Keyframe(TimeSpan.FromSeconds(95), 70),
+                new Keyframe(TimeSpan.FromMinutes(140), 0)
+            };
         }
 
         private object _sync = new object();
@@ -40,6 +98,16 @@ namespace WebServer
             }
         }
 
+        public void StartSimulation()
+        {
+            SimulationStartTime = DateTime.UtcNow;
+        }
+
+        public void StopSimulation()
+        {
+            SimulationStartTime = null;
+        }
+
         private void ResetExceptions()
         {
             lock (_sync)
@@ -51,6 +119,12 @@ namespace WebServer
         private string GetExceptionsMessage()
         {
             return string.Format("Got exceptions reading from event hub: {0}", string.Join(",", ExceptionsRaised));
+        }
+
+        private Keyframe GetLastKeyframe(List<Keyframe> events)
+        {
+            TimeSpan? eventTime = DateTime.UtcNow - SimulationStartTime;
+            return events.Last(e => e.Time < eventTime);
         }
     }
 }

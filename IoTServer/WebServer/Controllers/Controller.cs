@@ -15,6 +15,7 @@ namespace WebServer.Controllers
             _context = context;
         }
 
+        [NonAction]
         public void Validate()
         {
             _context.CheckExceptionsRaised();

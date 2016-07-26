@@ -121,12 +121,14 @@
     <Compile Include="Controllers\Controller.cs" />
     <Compile Include="Controllers\ControllerDependencyResolver.cs" />
     <Compile Include="Controllers\AppController.cs" />
+    <Compile Include="Controllers\SimulationController.cs" />
     <Compile Include="Controllers\WeightController.cs" />
     <Compile Include="Controllers\TemperatureController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Keyframe.cs" />
     <Compile Include="Models\TemperatureEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
