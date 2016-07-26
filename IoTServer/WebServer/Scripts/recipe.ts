@@ -1,8 +1,9 @@
 ﻿namespace ProjectJar {
     export interface RecipeStep {
-        Order: number;
+        Order?: number;
         Description: string;
         Amount: number;
+        Type: "weight" | "temperature" | "time";
     }
     export class Recipe {
         public steps: Step[];

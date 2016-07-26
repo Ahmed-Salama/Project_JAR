@@ -25,8 +25,8 @@ namespace ProjectJar {
 
         render() {
             this.$selector.empty();
-            this.$checkbox = $("<div class='ms-Grid-col ms-u-sm1 stepCheckbox'><i class='ms-Icon ms-Icon--checkboxEmpty'></i></div>").appendTo(this.$selector);
-            let $step = $("<div class='ms-Grid-col ms-u-sm11'></div>").appendTo(this.$selector);
+            this.$checkbox = $("<div class='ms-Grid-col stepCheckbox'><i class='ms-Icon ms-Icon--checkboxEmpty'></i></div>").appendTo(this.$selector);
+            let $step = $("<div class='ms-Grid-col stepDescription'></div>").appendTo(this.$selector);
             $(`<div class='stepTitle'>${this.description}</div>`).appendTo($step);
             this.$bar = $("<div class='stepBar'></div>").appendTo($step);
             this.$progress = $("<div class='stepProgress'></div>").appendTo(this.$bar);

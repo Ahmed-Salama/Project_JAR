@@ -27,9 +27,15 @@ header.ms-font-s {
     margin: 1em 0;
 }
 
+.stepDescription {
+    width: calc(100% - 35px);
+}
+
 .stepCheckbox {
     margin-top: 5px;
+    padding-left: 0;
     text-align: right;
+    width: 25px;
 }
 
 .stepCheckbox .ms-Icon {
