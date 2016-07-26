@@ -1,0 +1,39 @@
+﻿body {
+}
+
+.stepContainer {
+    margin: 1em 0;
+}
+
+.stepCheckbox {
+    margin-top: 5px;
+    text-align: right;
+}
+
+.stepCheckbox .ms-Icon {
+    font-size: 24px;
+}
+
+.stepBar {
+    width: 100%;
+    height: 20px;   
+}
+
+.stepProgress {
+    height: 20px;
+    min-width: 2px;
+    background-color: #ccc;
+}
+
+.stepProgress.overFull {
+    background-color: #E81123;
+}
+
+.stepProgress.underFull {
+    background-color: #BAD80A;
+}
+
+.stepProgress.full {
+    background-color: #107C10;
+}
+

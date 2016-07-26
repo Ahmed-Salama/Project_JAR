@@ -1,0 +1,14 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@{
+    Layout = "~/Views/App/_Layout.cshtml";
+}
+
+<div style="width: 400px">
+    <h1>@ViewBag.Title</h1>
+    <p>This is my recipe page</p>
+    <div class="ms-Grid" id="recipe">
+    </div>
+</div>
+<script src="~/Scripts/step.js"></script>
+<script src="~/Scripts/recipe.js"></script>
+<script src="~/Scripts/recipePage.js"></script>
