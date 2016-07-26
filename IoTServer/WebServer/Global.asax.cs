@@ -11,6 +11,7 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft;
 using WebServer.Models;
+using WebServer.App_Start;
 
 namespace WebServer
 {
@@ -29,6 +30,8 @@ namespace WebServer
             {
                 WebApiConfig.Register(config, applicationContext);
             });
+
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             InitializeEventHubConnection();
         }
