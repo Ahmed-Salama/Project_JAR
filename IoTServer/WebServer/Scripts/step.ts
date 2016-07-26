@@ -33,6 +33,7 @@ namespace ProjectJar {
         }
 
         start() {
+            this.getWeight();
             // TODO: poll sensor for data
             let x = 0;
             let id = setInterval(() => {
@@ -76,6 +77,15 @@ namespace ProjectJar {
             if (this.next != null) {
                 this.next();
             }
+        }
+
+        getWeight() {
+            $.ajax({
+                url: "/api/weight",
+                type: "GET"
+            }).done((result) => {
+                console.log(result);
+            });
         }
 
         private withinMargin(current: number, expected: number) {

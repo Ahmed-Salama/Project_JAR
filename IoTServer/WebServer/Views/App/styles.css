@@ -1,4 +1,26 @@
 ﻿body {
+    margin: 0;
+}
+
+main {
+    margin: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    background: #212121;
+    padding: 10px;
+}
+
+header.ms-font-s {
+     color: #fff;
+}
+
+.ms-ListItem.is-selectable::before {
+    content: none;
 }
 
 .stepContainer {

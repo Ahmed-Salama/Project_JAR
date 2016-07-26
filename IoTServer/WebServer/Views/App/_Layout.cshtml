@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/2.2.0/fabric.min.css" />
-    <!--<link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/2.2.0/fabric.components.min.css">-->
+    <link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/2.2.0/fabric.components.min.css">
     <link rel="stylesheet" href="~/Views/App/styles.css" />
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <title>
@@ -12,10 +12,11 @@
     </title>
 </head>
 <body>
-    <header>
-        Project Jar > @ViewBag.Title
+    <header class="ms-font-s">
+        Project Jar
     </header>
     <main class="ms-font-m">
+        <h1 class="ms-font-xxl">@ViewBag.Title</h1>
         @RenderBody()
     </main>
 </body>
