@@ -1,8 +1,9 @@
 ﻿namespace ProjectJar {
     export interface RecipeStep {
-        Order: number;
+        Order?: number;
         Description: string;
         Amount: number;
+        Type: "weight" | "temperature" | "time";
     }
     export class Recipe {
         public steps: Step[];
@@ -14,7 +15,7 @@
         render() {
             this.recipeSteps.forEach((step, index) => {
                 let $step = $("<div class='ms-Grid-row stepContainer'></div>").appendTo(this.$selector);
-                let stepObj = new Step(step.Description, step.Amount, $step);
+                let stepObj = new Step(step.Description, step.Amount, step.Type, $step);
                 this.steps.push(stepObj);
                 // store this step's start function in the previous step
                 if (index > 0) {
@@ -28,6 +29,13 @@
 
         start() {
             this.steps[0].start();
+            /*
+            $.ajax({
+                url: "/api/simulation/start",
+                type: "POST"
+            }).done(() => {
+                this.steps[0].start();
+            });*/
         }
 
         complete() {

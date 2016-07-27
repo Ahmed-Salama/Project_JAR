@@ -1,0 +1,14 @@
+**/WebServer/Scripts/*.js.map
+**/WebServer/Scripts/*.js
+*.dll
+*.dll.config
+*.pdb
+*.suo
+*.cache
+*.FileListAbsolute.txt
+
+*.xdt
+
+packages
+obj
+bin

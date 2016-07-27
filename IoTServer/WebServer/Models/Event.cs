@@ -9,8 +9,10 @@ namespace WebServer.Models
     {
         public string DeviceId { get; set; }
 
-        public string WeightReading { get; set; }
+        public long EventTime { get; set; }
 
-        public string TemperatureReading { get; set; }
+        public int WeightReading { get; set; }
+
+        public int TemperatureReading { get; set; }
     }
 }

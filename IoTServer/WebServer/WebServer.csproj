@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.1.8.11\tools\Microsoft.TypeScript.Default.props" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.1.8.11\tools\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.1.8.11\tools\Microsoft.TypeScript.NuGet.props" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.1.8.11\tools\Microsoft.TypeScript.NuGet.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -21,7 +22,6 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -112,20 +112,25 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Views\App\styles.css" />
+    <Content Include="Views\Images\logo_inverted.png" />
+    <Content Include="Views\Images\scrambled-eggs.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ApplicationContext.cs" />
+    <Compile Include="Controllers\Controller.cs" />
     <Compile Include="Controllers\ControllerDependencyResolver.cs" />
     <Compile Include="Controllers\AppController.cs" />
+    <Compile Include="Controllers\SimulationController.cs" />
     <Compile Include="Controllers\WeightController.cs" />
     <Compile Include="Controllers\TemperatureController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Keyframe.cs" />
     <Compile Include="Models\TemperatureEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -135,6 +140,8 @@
     <Content Include="Views\App\Index.cshtml" />
     <Content Include="Views\App\_Layout.cshtml" />
     <Content Include="Views\App\Recipe.cshtml" />
+    <None Include="Properties\PublishProfiles\projectjardemo - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\projectjardemo - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -148,6 +155,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\recipePage.ts" />
     <TypeScriptCompile Include="Scripts\recipe.ts" />
+    <TypeScriptCompile Include="Scripts\service.ts" />
     <TypeScriptCompile Include="Scripts\step.ts" />
     <TypeScriptCompile Include="Typings\jquery.d.ts" />
   </ItemGroup>
@@ -159,7 +167,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.1.8.11\tools\Microsoft.TypeScript.targets" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.1.8.11\tools\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>

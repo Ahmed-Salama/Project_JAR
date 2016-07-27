@@ -1,13 +1,60 @@
 ﻿body {
+    margin: 0;
+}
+
+main {
+    margin: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    background: #000;
+    padding: 10px;
+}
+
+header h1 {
+     color: #fff;
+}
+
+header .logo {
+    float: right;
+}
+
+header .title {
+    color: #fff;
+    margin: 0;
+}
+
+header .logo img {
+    height: 35px;
+}
+
+.ms-ListItem img {
+    float: left;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.ms-ListItem.is-selectable::before {
+    content: none;
 }
 
 .stepContainer {
     margin: 1em 0;
 }
 
+.stepDescription {
+    width: calc(100% - 35px);
+}
+
 .stepCheckbox {
     margin-top: 5px;
+    padding-left: 0;
     text-align: right;
+    width: 25px;
 }
 
 .stepCheckbox .ms-Icon {
@@ -23,6 +70,10 @@
     height: 20px;
     min-width: 2px;
     background-color: #ccc;
+    -webkit-transition: width 0.1s;
+    -webkit-transition-timing-function: ease;
+    transition: width 0.2s;
+    transition-timing-function: ease;
 }
 
 .stepProgress.overFull {
