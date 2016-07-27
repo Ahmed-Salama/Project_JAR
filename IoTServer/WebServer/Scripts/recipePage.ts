@@ -1,4 +1,5 @@
-﻿let EggRecipe: ProjectJar.RecipeStep[] = [
+﻿/*
+let EggRecipe: ProjectJar.RecipeStep[] = [
     {
         Description: "2 eggs",
         Amount: 2,
@@ -38,6 +39,19 @@
         Description: "Pour egg mixture into hot skillet. Cook & stir until set (~3min)",
         Amount: 3 * 60 * 1000, // 3 min
         Type: "time"
+    }
+];*/
+
+let EggRecipe: ProjectJar.RecipeStep[] = [
+    {
+        Description: "Weight to 50",
+        Amount: 50,
+        Type: "weight"
+    },
+    {
+        Description: "Temperature to 120",
+        Amount: 120,
+        Type: "temperature"
     }
 ];
 
