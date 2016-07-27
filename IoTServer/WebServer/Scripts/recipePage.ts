@@ -45,7 +45,7 @@ let EggRecipe: ProjectJar.RecipeStep[] = [
 let EggRecipe: ProjectJar.RecipeStep[] = [
     {
         Description: "Weight to 50",
-        Amount: 50,
+        Amount: 600,
         Type: "weight"
     },
     {
