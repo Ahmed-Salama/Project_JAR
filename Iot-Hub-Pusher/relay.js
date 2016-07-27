@@ -1,6 +1,6 @@
 var deviceId = process.argv[2];
 var type = process.argv[3];
-var portName = process.argv[4]
+var portName = process.argv[4];
 
 var SerialPort = require("serialport");
 var port = new SerialPort(portName, {
@@ -10,7 +10,7 @@ var port = new SerialPort(portName, {
 var Protocol = require('azure-iot-device-amqp').Amqp;
 var Client = require('azure-iot-device').Client;
 var Message = require('azure-iot-device').Message;
-var connectionString = 'HostName=jar-iot-labs.azure-devices.net;DeviceId=ESP8266;SharedAccessKey=Tk9esMCeTYQnqmljNjkMyiuiPpKHKsL5Tx25RBhUaSg=';
+var connectionString = 'HostName=jar-iot-hub.azure-devices.net;DeviceId=FSR;SharedAccessKey=/fDlfakwotgFTvVKuLRIGfKuofQ+e9p21U7ZhwcI450=';
 
 // fromConnectionString must specify a transport constructor, coming from any transport package.
 var client = Client.fromConnectionString(connectionString, Protocol);
