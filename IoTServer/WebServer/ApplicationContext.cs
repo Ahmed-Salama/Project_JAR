@@ -56,13 +56,13 @@ namespace WebServer
             ExceptionsRaised = new Queue<Exception>();
 
             // Dummy simulation data
-            WeightSimulationEvents = new List<Keyframe>() { 
-                new Keyframe(TimeSpan.FromSeconds(0), 0),
-                new Keyframe(TimeSpan.FromSeconds(10), 10),
-                new Keyframe(TimeSpan.FromSeconds(20), 50),
-                new Keyframe(TimeSpan.FromSeconds(30), 0),
-            };
-
+            WeightSimulationEvents = new List<Keyframe>();
+            for (int i = 0; i < 10; i++)
+            {
+                WeightSimulationEvents.Add(new Keyframe(TimeSpan.FromMilliseconds(i * 200), i*50));
+            }
+            WeightSimulationEvents.Add(new Keyframe(TimeSpan.FromMilliseconds(10 * 200), 0));
+            
             TemperatureSimulationEvents = new List<Keyframe>() { 
                 new Keyframe(TimeSpan.FromSeconds(0), 0),
                 new Keyframe(TimeSpan.FromSeconds(40), 10),
