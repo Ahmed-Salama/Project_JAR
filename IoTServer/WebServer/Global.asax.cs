@@ -80,6 +80,8 @@ namespace WebServer
                 {
                     applicationContext.AddException(ex);
                 }
+
+                Thread.Sleep(100);
             }
         }
     }

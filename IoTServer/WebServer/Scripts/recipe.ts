@@ -28,12 +28,14 @@
         }
 
         start() {
+            this.steps[0].start();
+            /*
             $.ajax({
                 url: "/api/simulation/start",
                 type: "POST"
             }).done(() => {
                 this.steps[0].start();
-            });
+            });*/
         }
 
         complete() {

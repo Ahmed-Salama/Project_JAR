@@ -18,6 +18,7 @@ namespace ProjectJar {
         private completeCount: number;
         private completed: boolean;
         private stopReading: boolean;
+        private oldresult: number;
 
         constructor(
             public description: string,
@@ -88,9 +89,13 @@ namespace ProjectJar {
                     url: "/api/" + this.type + "/get",
                     type: "GET"
                 }).then((result) => {
+                    if (this.oldresult == null || result > this.oldresult) {
+                        console.log(`Time: ${new Date().toISOString()}; Value: ${result}`);
+                        this.oldresult = result;
+                    }
                     let percent = (result * 100.0) / this.amount;
                     this.movingAvg.add(percent);
-                    console.log(percent);
+                    
                     if (!this.completed) {
                         this.update(percent);
                         this.checkComplete();
@@ -101,7 +106,7 @@ namespace ProjectJar {
                     if (!this.stopReading) {
                         this.timeoutId = setTimeout(() => {
                             this.getData();
-                        }, 500);
+                        }, 100);
                     }
                 });
             }
@@ -153,7 +158,6 @@ namespace ProjectJar {
         avg() {
             let sum = this.data.reduce((sum, cur) => { return sum += cur; });
             this.latest = (sum * 1.0) / this.data.length;
-            console.log(this.latest);
             return this.latest;
         }
     }

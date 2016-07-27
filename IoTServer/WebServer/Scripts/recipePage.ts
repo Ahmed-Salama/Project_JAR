@@ -44,13 +44,18 @@ let EggRecipe: ProjectJar.RecipeStep[] = [
 
 let EggRecipe: ProjectJar.RecipeStep[] = [
     {
-        Description: "Weight to 50",
-        Amount: 50,
+        Description: "Add 150 ml of milk",
+        Amount: 600,
         Type: "weight"
     },
     {
-        Description: "Temperature to 120",
-        Amount: 120,
+        Description: "Add 1/2 tsp of salt",
+        Amount: 300,
+        Type: "weight"
+    },
+    {
+        Description: "Heat the pan to 160F",
+        Amount: 160,
         Type: "temperature"
     }
 ];

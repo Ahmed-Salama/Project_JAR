@@ -112,6 +112,8 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Views\App\styles.css" />
+    <Content Include="Views\Images\logo_inverted.png" />
+    <Content Include="Views\Images\scrambled-eggs.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +140,8 @@
     <Content Include="Views\App\Index.cshtml" />
     <Content Include="Views\App\_Layout.cshtml" />
     <Content Include="Views\App\Recipe.cshtml" />
+    <None Include="Properties\PublishProfiles\projectjardemo - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\projectjardemo - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -151,6 +155,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\recipePage.ts" />
     <TypeScriptCompile Include="Scripts\recipe.ts" />
+    <TypeScriptCompile Include="Scripts\service.ts" />
     <TypeScriptCompile Include="Scripts\step.ts" />
     <TypeScriptCompile Include="Typings\jquery.d.ts" />
   </ItemGroup>
