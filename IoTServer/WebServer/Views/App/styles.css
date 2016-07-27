@@ -11,14 +11,31 @@ a {
 }
 
 header {
-    background: #212121;
+    background: #000;
     padding: 10px;
 }
 
-header.ms-font-s > a:link,
-header.ms-font-s > a:visited,
-header.ms-font-s {
+header h1 {
      color: #fff;
+}
+
+header .logo {
+    float: right;
+}
+
+header .title {
+    color: #fff;
+    margin: 0;
+}
+
+header .logo img {
+    height: 35px;
+}
+
+.ms-ListItem img {
+    float: left;
+    height: 40px;
+    margin-right: 10px;
 }
 
 .ms-ListItem.is-selectable::before {
