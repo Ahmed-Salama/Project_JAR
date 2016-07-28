@@ -133,7 +133,7 @@ namespace ProjectJar {
         }
 
         private checkMoveNext() {
-            if (this.compareMargin(this.movingAvg.avg(), 0) === 0) {
+            if (this.movingAvg.avg() < 20) {
                 this.moveNext();
             }
         }
